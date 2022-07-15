@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../store";
 import {fetchHotelsAC} from "../../store/ducks/hotels/actions";
 import {Button} from '../Button/Button';
-import {TextField} from '../TextField/TextField'
+import {TextField} from "../TextField/TextField";
 
 import style from './OrderDetails.module.scss'
 
@@ -31,6 +31,12 @@ export const OrderDetails = () => {
         }))
     }, [])
 
+    const validateInputNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDaysCount(e.target.value)
+        if (!Number.isInteger(e.target.value)) {
+            setDaysCount(parseInt(e.target.value).toString())
+        }
+    }
 
     const searchHotelsHandler = () => {
         dispatch(fetchHotelsAC({location, checkIn, checkOut: addDays(checkIn, +daysCount), daysCount: +daysCount}))
@@ -53,7 +59,8 @@ export const OrderDetails = () => {
             <TextField label={'Количество дней'}
                        value={daysCount}
                        type="number"
-                       onChange={e => setDaysCount(e.target.value)}
+                       step={1}
+                       onChange={validateInputNumber}
             />
             <Button onClick={searchHotelsHandler}>Найти</Button>
         </div>
