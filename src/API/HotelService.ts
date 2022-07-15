@@ -1,5 +1,5 @@
-import axios from "axios";
-import {IDataForRequest} from "../types";
+import axios, {AxiosResponse} from "axios";
+import {IDataForRequest, IHotel} from "../types";
 
 export class HotelService {
 
@@ -7,7 +7,7 @@ export class HotelService {
 
     static async getHotelsByConditions(conditions: IDataForRequest) {
         try {
-            const {data} = await axios.get(
+            const {data}: AxiosResponse<Array<IHotel>> = await axios.get(
                 `${HotelService.baseUrl}`, {
                     params: {
                         location: conditions.location,

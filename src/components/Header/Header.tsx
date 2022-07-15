@@ -1,6 +1,6 @@
 import logOutIcon from '../../assets/images/logOut.svg'
 import {useAppDispatch} from "../../store";
-import {logoutAC} from "../../store/ducks/auth/actions";
+import {logoutAC} from "../../store/ducks/auth/actionCreators";
 
 import style from './Header.module.scss'
 

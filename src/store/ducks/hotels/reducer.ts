@@ -1,5 +1,5 @@
-import {HotelActions, HotelsActionType} from "./actions";
 import {IHotelWithHelpers} from "../../../types";
+import { HotelActions, HotelsActionType } from "./actionTypes";
 
 interface IHotelsReducer {
     hotels: Array<IHotelWithHelpers>

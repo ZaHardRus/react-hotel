@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../store";
-import {fetchHotelsAC} from "../../store/ducks/hotels/actions";
+import {fetchHotelsAC} from "../../store/ducks/hotels/actionCreators";
 import {Button} from '../Button/Button';
 import {TextField} from "../TextField/TextField";
 
@@ -51,6 +51,7 @@ export const OrderDetails = () => {
             <label>
                 <div>Дата заселения</div>
                 <input
+                    min={currentDate}
                     className={style.datePicker}
                     type="date" value={checkIn}
                     onChange={e => setCheckIn(e.target.value)}

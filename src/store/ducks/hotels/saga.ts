@@ -1,7 +1,8 @@
 import {call, put, takeLatest} from 'redux-saga/effects'
-import {FetchHotelsAction, HotelsActionType, setErrorAC, setHotelsAC, setIsLoadingAC, setLocationAC} from "./actions";
+import { setErrorAC, setHotelsAC, setIsLoadingAC, setLocationAC} from "./actionCreators";
 import {HotelService} from "../../../API/HotelService";
 import {IHotel, IHotelWithHelpers} from "../../../types";
+import { FetchHotelsAction, HotelsActionType } from './actionTypes';
 
 function* fetchHotel({payload}: FetchHotelsAction) {
 

@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from "react";
 import {useAppDispatch} from "../../store";
-import {loginAC} from "../../store/ducks/auth/actions";
+import {loginAC} from "../../store/ducks/auth/actionCreators";
 import {emailValidator, passwordValidator} from "../../helpers/validator";
 import {FieldData} from "../../types";
 import {Button} from '../../components/Button/Button';

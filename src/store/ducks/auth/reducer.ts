@@ -1,4 +1,4 @@
-import {AuthActions, AuthActionType} from "./actions";
+import { AuthActions, AuthActionType } from "./actionTypes"
 
 interface IAuthReducer {
     isAuth: boolean

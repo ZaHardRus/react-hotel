@@ -1,6 +1,6 @@
 import {FC, memo} from "react";
 import {useAppDispatch, useAppSelector} from "../../store";
-import {addFavoriteAC, removeFavoriteAC} from "../../store/ducks/hotels/actions";
+import {addFavoriteAC, removeFavoriteAC} from "../../store/ducks/hotels/actionCreators";
 import {IHotelWithHelpers} from "../../types";
 import {LikeButton} from '../LikeButton/LikeButton'
 import {Rating} from '../Raiting/Rating'

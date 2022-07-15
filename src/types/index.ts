@@ -26,10 +26,10 @@ export interface IHotel {
     "priceFrom": number
 }
 
-export interface IHotelWithHelpers extends IHotel{
-    new_id:string
-    checkIn:string
-    daysCount:number
+export interface IHotelWithHelpers extends IHotel {
+    new_id: string
+    checkIn: string
+    daysCount: number
 }
 
 export interface FieldData {
@@ -37,7 +37,7 @@ export interface FieldData {
     error: null | string
 }
 
-export interface IDataForRequest{
+export interface IDataForRequest {
     location: string
     checkIn: string
     checkOut: string
