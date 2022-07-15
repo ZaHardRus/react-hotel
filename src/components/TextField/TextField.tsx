@@ -18,7 +18,9 @@ export const TextField: FC<TextFieldProps> = memo(({label, error = null, value, 
                        onChange={onChange}
                        {...props}/>
             </label>
-            {error && <div className={style.error}>{error}</div>}
+            <div className={style.errorIndent}>
+                {error && <div className={style.error}>{error}</div>}
+            </div>
         </div>
     )
 })
