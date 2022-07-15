@@ -11,7 +11,7 @@ import style from './Hotels.module.scss'
 export const Index = () => {
     const {hotels, location, favorites, isLoading, error} = useAppSelector(state => state.hotel)
     return (
-        <div className={style.hotels}>
+        <main className={style.hotels}>
             {isLoading
                 ?
                 <Loader/>
@@ -29,6 +29,6 @@ export const Index = () => {
                         <CardWrapper hotels={hotels}/>
                     </>
             }
-        </div>
+        </main>
     )
 }

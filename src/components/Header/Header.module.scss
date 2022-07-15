@@ -21,4 +21,9 @@
     align-items: center;
     gap: 12px;
   }
+  @media (max-width: 576px) {
+    .headerLogo{
+      font-size: 18px;
+    }
+  }
 }
