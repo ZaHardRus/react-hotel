@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.header {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+
+  .headerLogo {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: $main-black;
+  }
+
+  .logout {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}

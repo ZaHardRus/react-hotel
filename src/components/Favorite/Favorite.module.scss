@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+
+.favorite {
+  padding: 32px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+    border: 1px solid #d5d5d5;
+    background-color: #FFFFFF;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $main-gray;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+  }
+
+  @media (max-width: 1048px) {
+    width: 100%;
+    height: 390px;
+    overflow-y: scroll;
+  }
+
+  @media (max-width: 768px) {
+    width: auto;
+  }
+
+
+  .title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: $main-black;
+  }
+
+  .sortButtons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .sortBtn {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      padding: 4px 8px;
+      background: #FFFFFF;
+      border: 1px solid $second-black;
+      border-radius: 4px;
+
+      &:hover {
+        background-color: #e5ecf8;
+      }
+
+      &_disable {
+        padding: 4px 8px;
+        background: #FFFFFF;
+        border-radius: 4px;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        color: #99A0A3;
+        border: 1px solid #E5E5E5;
+
+        &:hover {
+          background-color: #e5ecf8;
+        }
+
+        svg {
+          path {
+            fill: none;
+          }
+        }
+      }
+    }
+  }
+
+  .emptyList {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #99A0A3;
+  }
+}

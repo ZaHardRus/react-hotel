@@ -1,0 +1,36 @@
+.mainPage {
+  background-color: #E5E5E5;
+  min-height: 100vh;
+
+  .container {
+    margin: 0 auto;
+    max-width: 1048px;
+    display: flex;
+    gap: 24px;
+    padding: 0 16px;
+    @media (max-width: 1048px) {
+      flex-wrap: wrap;
+      padding: 24px;
+    }
+
+    .leftSide {
+      min-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @media (max-width: 1048px) {
+        width: 100%;
+        flex-direction: row;
+      }
+      @media (max-width: 768px) {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+
+    .rightSide {
+      width: 100%;
+    }
+  }
+
+}

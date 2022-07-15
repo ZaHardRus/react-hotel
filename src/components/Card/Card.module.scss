@@ -1,0 +1,85 @@
+@import '../../styles/variables';
+
+.card {
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($main-gray, .2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  letter-spacing: -0.408px;
+
+  .topLine {
+    display: flex;
+    justify-content: space-between;
+
+    .name {
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 22px;
+      color: $main-black;
+    }
+
+    .like {
+      justify-self: end;
+    }
+  }
+
+  .middleLine {
+    display: flex;
+    gap: 24px;
+
+    .date {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: $main-gray;
+    }
+
+    .divider {
+      align-self: center;
+      height: 1px;
+      width: 8px;
+      background-color: #C4C4C4;
+    }
+
+    .daysCount {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: $main-gray;
+    }
+  }
+
+  .bottomLine {
+    display: flex;
+    justify-content: space-between;
+
+    .rating {
+      display: flex;
+      gap: 3px
+    }
+
+    .price {
+      display: flex;
+      gap: 12px;
+
+      span {
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        color: $main-gray;
+      }
+
+      span + span {
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        color: $main-black;
+      }
+    }
+  }
+}

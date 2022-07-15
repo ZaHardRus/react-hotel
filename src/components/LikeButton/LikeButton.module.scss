@@ -1,0 +1,14 @@
+.likeButton {
+  cursor: pointer;
+
+  svg {
+    path {
+      transition: fill .3s ease;
+
+      &:hover {
+        fill: #EBEBEB;
+        stroke: #c4c4c4;
+      }
+    }
+  }
+}
