@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .card {
-  padding: 16px 8px ;
+  padding: 16px 8px;
   border-bottom: 1px solid rgba($main-gray, .2);
   display: flex;
   flex-direction: column;
@@ -23,17 +23,12 @@
     .like {
       justify-self: end;
     }
-    @media (max-width: 576px) {
-      .name{
-        font-size: 16px;
-        font-weight: 500;
-      }
-    }
   }
 
   .middleLine {
     display: flex;
     gap: 24px;
+
     .date {
       font-weight: 400;
       font-size: 14px;
@@ -56,60 +51,74 @@
       letter-spacing: -0.408px;
       color: $main-gray;
     }
-    @media (max-width: 576px) {
-      //flex-direction: column;
+  }
+}
+
+.bottomLine {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  .rating {
+    display: flex;
+    gap: 3px
+  }
+
+  .price {
+    display: flex;
+    gap: 12px;
+
+    span {
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: $main-gray;
+    }
+
+    span + span {
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 22px;
+      letter-spacing: -0.408px;
+      color: $main-black;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .card{
+    .topLine {
+      .name {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    .middleLine {
       justify-content: space-between;
       padding: 4px 0;
       gap: 8px;
-      .date{
+
+      .date {
         font-size: 12px;
       }
-      .daysCount{
-        font-size:12px;
+
+      .daysCount {
+        font-size: 12px;
       }
-      //.divider{
-      //  align-self:self-start;
-      //}
     }
-  }
-
-  .bottomLine {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-
-    .rating {
-      display: flex;
-      gap: 3px
-    }
-
-    .price {
-      display: flex;
-      gap: 12px;
-
-      span {
-        font-weight: 300;
-        font-size: 11px;
-        line-height: 22px;
-        letter-spacing: -0.408px;
-        color: $main-gray;
-      }
-
-      span + span {
-        font-weight: 400;
-        font-size: 17px;
-        line-height: 22px;
-        letter-spacing: -0.408px;
-        color: $main-black;
-      }
-      @media (max-width: 576px) {
+    .bottomLine {
+      .price {
         align-self: flex-end;
       }
     }
-    @media (max-width: 500px) {
-      flex-direction: column;
-      padding: 4px 0;
-      gap: 8px;
-    }
+  }
+}
+
+@media (max-width: 500px) {
+  .bottomLine {
+    flex-direction: column;
+    padding: 4px 0;
+    gap: 8px;
   }
 }

@@ -1,40 +1,25 @@
-import {useEffect, useState} from "react";
-import {useAppDispatch, useAppSelector} from "../../store";
+import {memo, useState} from "react";
+import {addDays} from "../../helpers/addDays";
+import {getCurrentDate} from "../../helpers/getCurrentDate";
+import {useAppDispatch} from "../../store";
 import {fetchHotelsAC} from "../../store/ducks/hotels/actionCreators";
 import {Button} from '../Button/Button';
 import {TextField} from "../TextField/TextField";
 
 import style from './OrderDetails.module.scss'
 
-export const OrderDetails = () => {
-    const {location: initialLocation} = useAppSelector(state => state.hotel)
-    const currentDate = new Date().toLocaleDateString().split('T')[0].split('.').reverse().join('-')
+export const OrderDetails = memo(() => {
+    const currentDate = getCurrentDate()
+    const dispatch = useAppDispatch()
 
-    const [location, setLocations] = useState<string>(initialLocation)
+    const [location, setLocations] = useState<string>('Москва')
     const [daysCount, setDaysCount] = useState<string>('1')
     const [checkIn, setCheckIn] = useState<string>(currentDate)
 
-    function addDays(date: string, days: number) {
-        const result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result.toLocaleDateString().split('.').reverse().join('-');
-    }
-
-    const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        dispatch(fetchHotelsAC({
-            location: initialLocation,
-            checkIn: checkIn,
-            checkOut: addDays(checkIn, +daysCount),
-            daysCount: +daysCount
-        }))
-    }, [])
-
     const validateInputNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDaysCount(e.target.value)
-        if (!Number.isInteger(e.target.value)) {
-            setDaysCount(parseInt(e.target.value).toString())
+        if (!Number.isInteger(+e.target.value)) {
+            setDaysCount('1')
         }
     }
 
@@ -66,4 +51,4 @@ export const OrderDetails = () => {
             <Button onClick={searchHotelsHandler}>Найти</Button>
         </div>
     )
-}
+})

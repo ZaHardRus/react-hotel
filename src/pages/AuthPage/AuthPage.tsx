@@ -1,14 +1,16 @@
 import React, {FormEvent, useEffect, useState} from "react";
-import {useAppDispatch} from "../../store";
+import {useAppDispatch, useAppSelector} from "../../store";
 import {fetchLoginAC, loginAC} from "../../store/ducks/auth/actionCreators";
 import {emailValidator, passwordValidator} from "../../helpers/validator";
 import {FieldData} from "../../types";
 import {Button} from '../../components/Button/Button';
 import {TextField} from '../../components/TextField/TextField';
+import {LoaderBtn} from "../../components/Loader/LoaderBtn";
 
 import style from './AuthPage.module.scss';
 
 export const AuthPage = () => {
+    const {isLoading} = useAppSelector(state => state.auth)
     const [emailField, setEmailField] = useState<FieldData>({value: '', error: null})
     const [passwordField, setPasswordField] = useState<FieldData>({value: '', error: null})
 
@@ -64,7 +66,7 @@ export const AuthPage = () => {
                         <TextField label={'Пароль'} value={passwordField.value} onChange={changePasswordHandler}
                                    error={passwordField.error} type={'password'}/>
                     </div>
-                    <Button type={'submit'}>Войти</Button>
+                    <Button type={'submit'}>{isLoading ? <LoaderBtn/> : 'Войти'}</Button>
                 </form>
             </div>
         </div>

@@ -1,12 +1,12 @@
 import style from './TextField.module.scss';
-import React, {FC, memo} from "react";
+import React, {FC} from "react";
 
 interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string
     error?: string | null
 }
 
-export const TextField: FC<TextFieldProps> = memo(({label, error = null, value, onChange, ...props}) => {
+export const TextField: FC<TextFieldProps> = ({label, error = null, value, onChange, ...props}) => {
 
     return (
         <div className={style.textField}>
@@ -23,4 +23,4 @@ export const TextField: FC<TextFieldProps> = memo(({label, error = null, value, 
             </div>
         </div>
     )
-})
+}

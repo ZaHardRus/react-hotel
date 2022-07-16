@@ -9,32 +9,20 @@ import style from './Favorite.module.scss'
 
 export const Favorite = () => {
     const [contentVisible, setContentVisible] = useState(true)
-    const arrOption = [{id: 0, label: 'Рейтинг', value: 'stars'}, {id: 1, label: 'Цена', value: 'priceFrom'}]
-
     const [optionId, setOptionId] = useState(0)
     const [sortBy, setSortBy] = useState<'asc' | 'desc'>('asc')
 
-    const activeOption = arrOption[optionId].value as 'stars' | 'priceFrom'
     const {favorites} = useAppSelector(state => state.hotel)
+    const arrOption = [{id: 0, label: 'Рейтинг', value: 'stars'}, {id: 1, label: 'Цена', value: 'priceFrom'}]
+    const activeOption = arrOption[optionId].value as 'stars' | 'priceFrom'
 
     const favoritesList = [...favorites]
         .sort((a, b) => sortBy === "asc" ? b[activeOption] - a[activeOption] : a[activeOption] - b[activeOption])
 
-    const toggleSortByHandler = () => {
-        if (sortBy === "asc") {
-            setSortBy('desc')
-        } else {
-            setSortBy('asc')
-        }
-    }
-    const toggleActiveOption = (id: number) => {
-        if (optionId === id) {
-            toggleSortByHandler()
-        } else {
-            setOptionId(id)
-        }
-    }
 
+
+    const toggleSortByHandler = () => sortBy === "asc" ? setSortBy('desc') : setSortBy('asc')
+    const toggleActiveOption = (id: number) => optionId === id ? toggleSortByHandler() : setOptionId(id)
 
     return (
         <div className={style.favorite}>
@@ -63,12 +51,16 @@ export const Favorite = () => {
                     </div>
                     {
                         favorites.length === 0
-                            ? <div className={style.emptyList}>Список пуст</div>
-                            : <div className={style.listWrapper}>
-                                {favoritesList?.map(el =>
-                                    <React.Fragment key={el?.new_id}>
-                                        <Card {...el}/>
-                                    </React.Fragment>)}
+                            ?
+                            <div className={style.emptyList}>Список пуст</div>
+                            :
+                            <div className={style.listWrapper}>
+                                {
+                                    favoritesList?.map(el =>
+                                        <React.Fragment key={el?.new_id}>
+                                            <Card {...el}/>
+                                        </React.Fragment>)
+                                }
                             </div>
                     }
                 </>

@@ -1,0 +1,1 @@
+export const getCurrentDate = () => new Date().toLocaleDateString().split('T')[0].split('.').reverse().join('-')
