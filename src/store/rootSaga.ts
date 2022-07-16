@@ -1,8 +1,9 @@
 import {all, call, spawn} from 'redux-saga/effects'
+import { authSagaWatcher } from './ducks/auth/saga';
 import {hotelSagaWatcher} from "./ducks/hotels/saga";
 
 export function* rootSaga() {
-    const sagas = [hotelSagaWatcher]
+    const sagas = [hotelSagaWatcher,authSagaWatcher]
     const retrySagas = sagas.map(saga => {
         return spawn(function* () {
             while (true) {

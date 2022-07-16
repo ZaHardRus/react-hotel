@@ -13,7 +13,7 @@ const initialState: IAuthReducer = {
 export const authReducer = (state = initialState, action: AuthActions): IAuthReducer => {
     switch (action.type) {
         case AuthActionType.LOGIN: {
-            return {...state, isAuth: true, email: action.payload}
+            return {...state, isAuth: true, email: action.payload.email}
         }
         case AuthActionType.LOGOUT: {
             return {...state, isAuth: false, email: ''}

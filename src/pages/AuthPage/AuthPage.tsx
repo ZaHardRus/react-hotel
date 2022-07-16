@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from "react";
 import {useAppDispatch} from "../../store";
-import {loginAC} from "../../store/ducks/auth/actionCreators";
+import {fetchLoginAC, loginAC} from "../../store/ducks/auth/actionCreators";
 import {emailValidator, passwordValidator} from "../../helpers/validator";
 import {FieldData} from "../../types";
 import {Button} from '../../components/Button/Button';
@@ -43,15 +43,13 @@ export const AuthPage = () => {
             setPasswordField(prev => ({...prev, error: 'Поле не может быть пустым'}))
             return;
         }
-
-        localStorage.setItem('HotelToken', emailField.value)
-        dispatch(loginAC(emailField.value))
+        dispatch(fetchLoginAC({email: emailField.value, password: passwordField.value}))
     }
 
     useEffect(() => {
         const token = localStorage.getItem('HotelToken')
         if (token) {
-            dispatch(loginAC(token))
+            dispatch(loginAC({email: token, password: ''}))
         }
     }, [])
 

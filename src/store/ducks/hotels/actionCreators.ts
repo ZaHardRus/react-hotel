@@ -19,19 +19,15 @@ export const setHotelsAC = (payload: Array<IHotelWithHelpers>): SetHotelsAction 
     type: HotelsActionType.SET_HOTEL,
     payload
 })
-
 export const setLocationAC = (payload: string): SetLocationAction => ({type: HotelsActionType.SET_LOCATION, payload})
-
 export const addFavoriteAC = (payload: IHotelWithHelpers): AddFavoriteAction => ({
     type: HotelsActionType.ADD_FAVORITE,
     payload
 })
-
 export const removeFavoriteAC = (payload: string): RemoveFavoriteAction => ({
     type: HotelsActionType.REMOVE_FAVORITE,
     payload
 })
-
 export const setIsLoadingAC = (payload: boolean): SetIsLoadingAction => ({
     type: HotelsActionType.SET_IS_LOADING,
     payload
