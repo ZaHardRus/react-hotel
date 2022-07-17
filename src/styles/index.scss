@@ -1,5 +1,11 @@
 @import '~normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 body{
+  background-color: #E5E5E5;
   font-family: 'Roboto', sans-serif;
+}
+.app{
+  margin: 0 auto;
+  max-width: 1441px;
 }

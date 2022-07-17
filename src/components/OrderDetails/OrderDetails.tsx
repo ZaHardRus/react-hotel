@@ -32,6 +32,7 @@ export const OrderDetails = memo(() => {
                 label={'Локация'}
                 value={location}
                 onChange={e => setLocations(e.target.value)}
+                labelWeight={500}
             />
             <label>
                 <div>Дата заселения</div>
@@ -47,8 +48,9 @@ export const OrderDetails = memo(() => {
                        type="number"
                        step={1}
                        onChange={validateInputNumber}
+                       labelWeight={500}
             />
-            <Button onClick={searchHotelsHandler}>Найти</Button>
+            <Button style={{height:50}} onClick={searchHotelsHandler}>Найти</Button>
         </div>
     )
 })

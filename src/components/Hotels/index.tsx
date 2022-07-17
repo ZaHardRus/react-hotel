@@ -23,10 +23,12 @@ export const Index = () => {
                     <>
                         <HotelsHeader hotels={hotels} isLoading={isLoading} location={location}/>
                         <Carousel/>
-                        <div className={style.favoriteCount}>
-                            Добавлено в Избранное: <span>{favorites.length}</span> {declinationHotels(favorites.length)}
+                        <div className={style.hotelsContent}>
+                            <div className={style.favoriteCount}>
+                                Добавлено в Избранное: <span>{favorites.length}</span> {declinationHotels(favorites.length)}
+                            </div>
+                            <CardWrapper hotels={hotels}/>
                         </div>
-                        <CardWrapper hotels={hotels}/>
                     </>
             }
         </main>

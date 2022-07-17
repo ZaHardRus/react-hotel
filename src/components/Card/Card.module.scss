@@ -1,11 +1,11 @@
 @import '../../styles/variables';
 
 .card {
-  padding: 16px 8px;
+  padding: 16px 0;
   border-bottom: 1px solid rgba($main-gray, .2);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
   letter-spacing: -0.408px;
 
   .topLine {

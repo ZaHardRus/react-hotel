@@ -13,12 +13,12 @@ export const Carousel = memo(() => {
     return (
         <div className={style.carousel}>
             <Swiper
-                spaceBetween={4}
-                slidesPerView={3.33}>
+                spaceBetween={5}
+                slidesPerView={3.4}>
                 {
                     images.map((el, index) =>
                         <SwiperSlide key={index}>
-                            <img src={el} width={164} height={149} alt={`slide-hotel${index}`}/>
+                            <img src={el} width={168} height={152} alt={`slide-hotel${index}`}/>
                         </SwiperSlide>)
                 }
             </Swiper>
