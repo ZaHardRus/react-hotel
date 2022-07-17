@@ -74,7 +74,7 @@
     .hotelsWrapper {
       min-height: 300px;
       max-height: 800px;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       &::-webkit-scrollbar {
         width: 3px;

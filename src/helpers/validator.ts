@@ -11,10 +11,10 @@ export const passwordValidator = (password: string): [boolean, string | null] =>
     const ru = /[а-яё]/gui
 
     if (ru.test(password)) {
-        return [false, 'Пороль не должен содержать кириллицу']
+        return [false, 'Пароль не должен содержать кириллицу']
     }
     if (password.length < 8) {
-        return [false, 'Пороль не должен быть менее 8 символов']
+        return [false, 'Пароль должен содержать не менее 8 символов']
     }
     return [true, null]
 }

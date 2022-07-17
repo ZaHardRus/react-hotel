@@ -1,9 +1,10 @@
 import {memo, useState} from "react";
 import {addDays} from "../../helpers/addDays";
 import {getCurrentDate} from "../../helpers/getCurrentDate";
-import {useAppDispatch} from "../../store";
+import {useAppDispatch, useAppSelector} from "../../store";
 import {fetchHotelsAC} from "../../store/ducks/hotels/actionCreators";
 import {Button} from '../Button/Button';
+import {LoaderBtn} from "../Loader/LoaderBtn";
 import {TextField} from "../TextField/TextField";
 
 import style from './OrderDetails.module.scss'
@@ -11,6 +12,7 @@ import style from './OrderDetails.module.scss'
 export const OrderDetails = memo(() => {
     const currentDate = getCurrentDate()
     const dispatch = useAppDispatch()
+    const {isLoading} = useAppSelector(state => state.hotel)
 
     const [location, setLocations] = useState<string>('Москва')
     const [daysCount, setDaysCount] = useState<string>('1')
@@ -50,7 +52,7 @@ export const OrderDetails = memo(() => {
                        onChange={validateInputNumber}
                        labelWeight={500}
             />
-            <Button style={{height:50}} onClick={searchHotelsHandler}>Найти</Button>
+            <Button style={{height: 50}} onClick={searchHotelsHandler}>{isLoading ? <LoaderBtn/> : `Найти`}</Button>
         </div>
     )
 })

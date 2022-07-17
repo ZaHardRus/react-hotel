@@ -88,7 +88,7 @@
   .listWrapper {
     min-height: 100px;
     max-height: 600px;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 16px;
 
     &::-webkit-scrollbar {
